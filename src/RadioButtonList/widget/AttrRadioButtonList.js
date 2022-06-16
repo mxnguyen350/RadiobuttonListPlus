@@ -34,8 +34,15 @@ define([
         onchangeAction: "",
         allowDeselect: false,
         formOrientation: null,
+        buttonsList: [], // new list of the buttons you want to change and how to change them
 
         // Internal variables. Non-primitives created in the prototype are shared between all widget instances.
+        // New variables
+        enumName: [],
+        enumCaption: [],
+        subtextString: [],
+
+        // original variables
         _handles: null,
         _contextObj: null,
         _alertDiv: null,
@@ -49,6 +56,12 @@ define([
 
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
+            // Create individual arrays for each of the attributes
+            for (var i = 0; i < this.buttonsList.length; i++) {
+                this.enumName.push(this.buttonsList[i].enumName)
+                this.enumCaption.push(this.buttonsList[i].enumCaption)
+                this.subtextString.push(this.buttonsList[i].subtextString)
+            }
         },
 
         update: function (obj, callback) {
@@ -299,8 +312,22 @@ define([
                 "for": this.entity + "_" + this.id + "_" + index,
                 "innerHTML": value
             });
-
-            return labelNode;
+            var subtextIndex = this.enumCaption.findIndex(element => {
+                if (element === value) {
+                    return true
+                }
+                return false
+            })
+            if (subtextIndex === -1) {
+                return labelNode;
+            } else {
+                var subtextNode = dojoConstruct.create("label", {
+                    "for": this.entity + "_" + this.id + "_" + index,
+                    "innerHTML": this.subtextString[subtextIndex]
+                })
+                var combinedNode = dojoConstruct.place(subtextNode, labelNode, "after")
+                return combinedNode
+            }
         },
 
         _createRadiobuttonNode: function (key, value, index) {
