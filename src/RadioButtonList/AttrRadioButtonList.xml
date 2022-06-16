@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="RadioButtonListPlus.widget.AttrRadioButtonList" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+<widget id="RadioButtonList.widget.AttrRadioButtonList" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
   <name>Attribute Radiobutton List (Deprecated)</name>
   <description>Creates a radiobutton list based on an enumeration or boolean attribute.</description>
 
@@ -72,6 +72,28 @@ YII=</icon>
 			<caption>Label Width (weight)</caption>
 			<category>Display</category>
 			<description>The column size of the label control (only applied with horizontal orientation)</description>
+		</property>
+		<property key="buttonsList" type="object" isList="true" required="false">
+			<caption>Buttons To Update</caption>
+			<category>Display</category>
+			<description>A way to configure additional text on radio buttons. To enable this functionality the radio button widgte must have a vertical configuration</description>
+			<properties>
+				<property key="enumName" type="string" required="true">
+					<caption>Enum Key</caption>
+					<category>Display</category>
+					<description>The key that identifies the enum value</description>
+				</property>
+				<property key="enumCaption" type="string" required="true">
+					<caption>Enum Caption</caption>
+					<category>Display</category>
+					<description>The full text of the enum that will be displayed with the radio button</description>
+				</property>
+				<property key="subtextString" type="string" required="true">
+					<caption>Subtext</caption>
+					<category>Display</category>
+					<description>This is the string that will be attahced as a substring to the radio button</description>
+				</property>
+			</properties>
 		</property>
 		<property key="onchangeAction" type="microflow" required="false">
 			<caption>On change</caption>

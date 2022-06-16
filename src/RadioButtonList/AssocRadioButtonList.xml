@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="RadioButtonListPlus.widget.AssocRadioButtonList" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+<widget id="RadioButtonList.widget.AssocRadioButtonList" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
 	<name>Association Radiobutton List</name>
 	<description>Creates a radiobutton list which will set an association value.</description>
 	<icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAALQSURBVDhPhZPLT1NBFMZvqQlbjTHyL/AnuJOdkQ079rxilMToSg0GH2B9pmhakD7kUV5FLLUVeqGttVD64NI2UioVsPS2hZZY+0BDKhE+Z6bF6EKd5ORkcuf7fuecOyPhyOLfeZuymR31TjrNSSQS7nRVFXfi5Knmc2fPaABIyBEWZB3Q83+sGae3SaXt37VarYhGoxBFES6XC326kQL51kwMKspBTdgqm5Y2IxOvQcXJZJJlnueRz+fh8/kwZjCDF0TYgwnM+uOY8sVgIftpXxwm9yaGbB/AyRW9jEzFra2tqKurg9lsRi6Xg1LVh/XYNqwLy7B7VvDWE4bZEYAQErG/DxjnN8B1KVWsbEqm4pqaGphMJhQKBXSr+2ENJAgtiknXBqYWYzC7YzDMf4LOGsFLx0dwo69MrGdaNiVTcbFYRCAQhJ608C+6zrIMjg6KDoz2TMumZCrWjU5gxvvxr/QJxxpUkwLYIGfnfC10YLRnWjYl+0Nr/6GHoNC7SwaZdFxaXX0RNGprr5G/BATCMdRffYYbXXoEV2MYtwjQGlzIZPdB6b0GAfIhJzgiajkS/55TnwtoaFNBOWJjhrn8DyyFtrCdKkJnCeHp6AKeDNhKFaSTG4+OxPX1HUwgbn1BY5sa7QoDPEERY9N+LK2kkM0elulzuK/hSwZbYqSCGjQ2PIZ60ssMoskMM7guH4fR9h4PtBY4hRgZMhhdpiX3pnOwZCBGQ9JhnZFtFHonM0ikCmi8qcFzvQO732hFe3AHkgiGM6R3QlfziMfCx5lBdD0oLedKuc6G4vcD2L0RnL/wEJdlQ3AuboJ3rRHRNOzkIjF6xwD29r4eO3ofLK9HBIl80EoMAJtnjdDn8MLghmE2hAGjgGFTAIntQ8gInZyVkkIZ+NfrWg27JVdkgzDa/bjbY8Q9zRQ6e9+gvduIW0ojbveYcIfEpY5+1i4xqPwJSNC6dg/YpdEAAAAASUVORK5CYII=</icon>
@@ -31,22 +31,24 @@
 		</property>
 		<property key="buttonsList" type="object" isList="true" required="false">
 			<caption>Buttons To Update</caption>
+			<category>Display</category>
 			<description>A way to configure additional text on radio buttons. To enable this functionality the radio button widgte must have a vertical configuration</description>
 			<properties>
-				<propertyGroup caption="General">
-					<property key="enumName" type="string" required="true">
-						<caption>Enum Key</caption>
-						<description>The key that identifies the enum value</description>
-					</property>
-					<property key="enumCaption" type="string" required="true">
-						<caption>Enum Caption</caption>
-						<description>The full text of the enum that will be displayed with the radio button</description>
-					</property>
-					<property key="subtextString" type="string" required="true">
-						<caption>Subtext</caption>
-						<description>This is the string that will be attahced as a substring to the radio button</description>
-					</property>
-				</propertyGroup>
+				<property key="enumName" type="string" required="true">
+					<caption>Enum Key</caption>
+					<category>Display</category>
+					<description>The key that identifies the enum value</description>
+				</property>
+				<property key="enumCaption" type="string" required="true">
+					<caption>Enum Caption</caption>
+					<category>Display</category>
+					<description>The full text of the enum that will be displayed with the radio button</description>
+				</property>
+				<property key="subtextString" type="string" required="true">
+					<caption>Subtext</caption>
+					<category>Display</category>
+					<description>This is the string that will be attahced as a substring to the radio button</description>
+				</property>
 			</properties>
 		</property>
 		<property key="sortAttr" type="attribute" entityProperty="RadioListObject" required="false">

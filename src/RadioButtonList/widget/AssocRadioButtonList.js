@@ -357,8 +357,22 @@ define([
                     "for": this.entity + "_" + this.id + "_" + index,
                     "innerHTML": value
                 });
-
-                return labelNode;
+                var subtextIndex = this.enumCaption.findIndex(element => {
+                    if (element === value) {
+                        return true
+                    }
+                    return false
+                })
+                if (subtextIndex === -1) {
+                    return labelNode;
+                } else {
+                    var subtextNode = dojoConstruct.create("label", {
+                        "for": this.entity + "_" + this.id + "_" + index,
+                        "innerHTML": this.subtextString[subtextIndex]
+                    })
+                    var combinedNode = dojoConstruct.place(subtextNode, labelNode, "after")
+                    return combinedNode
+                }
             },
 
             _createRadiobuttonNode: function (key, value, index) {

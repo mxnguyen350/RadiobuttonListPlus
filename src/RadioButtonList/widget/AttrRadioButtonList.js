@@ -57,10 +57,12 @@ define([
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
             // Create individual arrays for each of the attributes
-            for (var i = 0; i < this.buttonsList.length; i++) {
-                this.enumName.push(this.buttonsList[i].enumName)
-                this.enumCaption.push(this.buttonsList[i].enumCaption)
-                this.subtextString.push(this.buttonsList[i].subtextString)
+            if (this.buttonsList.length > 0) {
+                for (var i = 0; i < this.buttonsList.length; i++) {
+                    this.enumName.push(this.buttonsList[i].enumName)
+                    this.enumCaption.push(this.buttonsList[i].enumCaption)
+                    this.subtextString.push(this.buttonsList[i].subtextString)
+                }
             }
         },
 
